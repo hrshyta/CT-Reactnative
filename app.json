@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "CT-ReactNative",
+    "slug": "CT-ReactNative",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "CT-ReactNative"
+}
