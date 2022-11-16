@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "clevertap-react-native": "^0.9.3",
     "expo": "~47.0.5",
     "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",

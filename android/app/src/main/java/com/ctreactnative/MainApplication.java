@@ -19,6 +19,9 @@ import expo.modules.ReactNativeHostWrapper;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import com.clevertap.android.sdk.ActivityLifecycleCallback;
+import com.clevertap.react.CleverTapPackage;
+import com.clevertap.android.sdk.CleverTapAPI;
 
 public class MainApplication extends Application implements ReactApplication {
   private final ReactNativeHost mReactNativeHost = new ReactNativeHostWrapper(
@@ -35,6 +38,7 @@ public class MainApplication extends Application implements ReactApplication {
       List<ReactPackage> packages = new PackageList(this).getPackages();
       // Packages that cannot be autolinked yet can be added manually here, for example:
       // packages.add(new MyReactNativePackage());
+      //packages.add(new CleverTapPackage());
       return packages;
     }
 
@@ -62,7 +66,7 @@ public class MainApplication extends Application implements ReactApplication {
     // If you opted-in for the New Architecture, we enable the TurboModule system
     ReactFeatureFlags.useTurboModules = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
     SoLoader.init(this, /* native exopackage */ false);
-
+    ActivityLifecycleCallback.register(this);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
     ApplicationLifecycleDispatcher.onApplicationCreate(this);
   }

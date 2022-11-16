@@ -8,6 +8,10 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
   <!-- END OPTIONAL PERMISSIONS -->
+  <!-- Required to allow the app to send events and user profile information -->
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <!-- Recommended so that CleverTap knows when to attempt a network call -->
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
   <queries>
     <!-- Support checking for http(s) links via the Linking API -->
@@ -21,6 +25,19 @@
   <application android:name=".MainApplication" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:allowBackup="false" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
     <meta-data android:name="expo.modules.updates.EXPO_UPDATE_URL" android:value="YOUR-APP-URL-HERE"/>
     <meta-data android:name="expo.modules.updates.EXPO_SDK_VERSION" android:value="YOUR-APP-SDK-VERSION-HERE"/>
+    <meta-data
+        android:name="CLEVERTAP_ACCOUNT_ID"
+        android:value="TEST-Z44-565-K66Z"/>
+    <meta-data
+        android:name="CLEVERTAP_TOKEN"
+        android:value="TEST-565-441"/>
+    <!-- IMPORTANT: To force use Google AD ID to uniquely identify  users, use the following meta tag. GDPR mandates that if you are using this tag, there is prominent disclousure to your end customer in their application. Read more about GDPR here - https://clevertap.com/blog/in-preparation-of-gdpr-compliance/ -->
+    <meta-data
+        android:name="CLEVERTAP_USE_GOOGLE_AD_ID"
+        android:value="1"/>
+    <meta-data
+        android:name="CLEVERTAP_REGION"
+        android:value="eu1"/>
     <activity android:name=".MainActivity" android:label="@string/app_name" android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode" android:launchMode="singleTask" android:windowSoftInputMode="adjustResize" android:theme="@style/Theme.App.SplashScreen" android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
